@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070814"><title>NOVA — Interactive 3D Universe</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#070814;color:#f5f6ff;font-family:'DM Sans',sans-serif;overflow-x:hidden}
+#space{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+nav{position:fixed;z-index:5;top:0;width:100%;padding:22px 7%;display:flex;justify-content:space-between;background:linear-gradient(#070814dd,transparent);backdrop-filter:blur(8px)}
+.logo{font:700 1rem 'Space Grotesk';letter-spacing:.22em}.logo b,.kicker{color:#86e9ff}.links{display:flex;gap:28px}.links a{color:#c8cde5;text-decoration:none;font-size:.84rem}.links a:hover{color:#86e9ff}
+#progress{position:fixed;z-index:8;top:0;left:0;height:2px;background:linear-gradient(90deg,#86e9ff,#aa91ff);width:0}
+main{position:relative;z-index:2}.panel{min-height:100vh;display:flex;align-items:center;padding:120px 9%;position:relative}.hero{min-height:100svh}.copy{max-width:660px}.kicker{font-size:.7rem;letter-spacing:.23em;text-transform:uppercase;font-weight:700}.hero h1{font:700 clamp(4rem,10vw,9rem)/.84 'Space Grotesk';letter-spacing:-.085em;margin:24px 0}.hero h1 span{color:transparent;-webkit-text-stroke:1.3px #d5d9ff}.copy p{max-width:510px;color:#aab0cc;line-height:1.85;font-size:1rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;border:1px solid #ffffff30;border-radius:99px;padding:13px 20px;background:#ffffff0c;color:white;font-weight:700;font-size:.85rem;cursor:pointer;text-decoration:none;transition:.25s}.btn.primary,.btn.active{background:#86e9ff;color:#06101a;border-color:#86e9ff}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px #86e9ff28}
+.scroll{position:absolute;bottom:32px;left:9%;color:#a5accb;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+.section{background:linear-gradient(90deg,#070814e8,#07081477 70%,transparent)}.right{justify-content:flex-end;background:linear-gradient(270deg,#070814e8,#07081477 70%,transparent)}.inner{width:min(1100px,100%);margin:auto}.index{color:#86e9ff;font:600 .78rem 'Space Grotesk';letter-spacing:.18em}.section h2{font:600 clamp(2.8rem,6.7vw,6rem)/.96 'Space Grotesk';letter-spacing:-.07em;margin:18px 0}.section p{max-width:570px;color:#aab0cc;line-height:1.85}.stats{display:flex;gap:32px;margin-top:32px}.stats strong{display:block;font:600 1.8rem 'Space Grotesk'}.stats span{font-size:.72rem;color:#929ab9}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}.card{padding:22px;border:1px solid #ffffff25;border-radius:18px;background:#10152dcc;backdrop-filter:blur(12px)}.card i{font-style:normal;color:#86e9ff;font-size:1.4rem}.card h3{font:600 1.1rem 'Space Grotesk';margin:15px 0 6px}.card p{font-size:.83rem;margin:0}
+.controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}.hint{color:#929ab9;font-size:.75rem;margin-top:14px}
+footer{position:relative;z-index:2;padding:25px 9%;border-top:1px solid #ffffff20;background:#070814;color:#8991b1;font-size:.76rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(24px);transition:.8s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:760px){nav{padding:18px 6%}.links{gap:13px}.links a{font-size:.7rem}.panel{padding:110px 7%;min-height:90vh}.hero{min-height:100svh}.right{justify-content:flex-start}.cards{grid-template-columns:1fr}.stats{gap:20px}.stats strong{font-size:1.45rem}.scroll{left:7%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none}*{transition:none!important}}
+</style></head>
+<body>
+<div id="progress"></div><canvas id="space" aria-label="Interactive animated 3D universe"></canvas>
+<nav><a class="logo" href="#home" style="color:white;text-decoration:none">NOVA<b>.</b></a><div class="links"><a href="#origin">Origin</a><a href="#worlds">Worlds</a><a href="#control">Interact</a></div></nav>
+<main>
+<section class="panel hero" id="home"><div class="copy"><div class="kicker">An immersive 3D experience · 2026</div><h1>ENTER<br>THE <span>UNKNOWN.</span></h1><p>A universe that responds to your movement. Travel through glowing worlds, orbiting forms and a story shaped by your scroll.</p><div class="actions"><a class="btn primary" href="#origin">Begin exploration ↘</a><a class="btn" href="#control">Explore controls</a></div></div><div class="scroll">↓ &nbsp; Scroll to travel</div></section>
+<section class="panel section" id="origin"><div class="inner copy reveal"><div class="index">01 / THE ORIGIN</div><h2>Every universe<br>starts with a spark.</h2><p>At the edge of imagination, light becomes matter and motion becomes a language. Follow the glowing core as it transforms through a field of stars.</p><div class="stats"><div><strong>∞</strong><span>Possibilities</span></div><div><strong>01</strong><span>New perspective</span></div><div><strong>360°</strong><span>Of exploration</span></div></div></div></section>
+<section class="panel section right" id="worlds"><div class="inner copy reveal"><div class="index">02 / THE WORLDS</div><h2>Find your place<br>among the stars.</h2><p>Move between celestial forms. A luminous planet, delicate orbital paths and a deep star field create a scene that shifts as you move down the page.</p><div class="cards"><article class="card"><i>✧</i><h3>Cosmic light</h3><p>Layered lighting and glowing materials.</p></article><article class="card"><i>◎</i><h3>Living orbits</h3><p>Animated rings and dimensional motion.</p></article><article class="card"><i>⌁</i><h3>Scroll story</h3><p>Camera movement linked to your journey.</p></article></div></div></section>
+<section class="panel section" id="control"><div class="inner copy reveal"><div class="index">03 / YOUR UNIVERSE</div><h2>Change the<br>shape of space.</h2><p>Choose a form and move your pointer or finger. The central object responds in real time. Scroll back up to watch the scene travel with you.</p><div class="controls"><button class="btn active" data-form="planet">Planet</button><button class="btn" data-form="torus">Orbit</button><button class="btn" data-form="knot">Energy knot</button></div><div class="hint">TIP: Move your pointer across the screen or drag on touch devices.</div></div></section>
+</main><footer><span>© 2026 NOVA — INTERACTIVE 3D UNIVERSE</span><span>Powered by Three.js · Designed for curiosity</span></footer>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const canvas=document.querySelector('#space'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x070814,.035);
+const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,.1,100);camera.position.set(0,0,9);
+scene.add(new THREE.AmbientLight(0x8999ff,1.05));
+const key=new THREE.PointLight(0x81eaff,48,35);key.position.set(3,4,5);scene.add(key);
+const violet=new THREE.PointLight(0xa58aff,35,35);violet.position.set(-5,-2,1);scene.add(violet);
+const root=new THREE.Group();scene.add(root);
+const mat=new THREE.MeshPhysicalMaterial({color:0x7775d9,metalness:.35,roughness:.24,clearcoat:1});
+let core=new THREE.Mesh(new THREE.IcosahedronGeometry(1.45,5),mat);root.add(core);
+const glow=new THREE.Mesh(new THREE.SphereGeometry(1.58,48,48),new THREE.MeshBasicMaterial({color:0x686eff,transparent:true,opacity:.1,side:THREE.BackSide}));root.add(glow);
+const ringMat=new THREE.MeshStandardMaterial({color:0x8cecff,metalness:.72,roughness:.2,emissive:0x1b5470,emissiveIntensity:.8}),rings=[];
+for(let i=0;i<3;i++){let r=new THREE.Mesh(new THREE.TorusGeometry(2.05+i*.22,.014,10,180),ringMat);r.rotation.set(.65+i*.42,.3+i*.5,.2+i*.3);root.add(r);rings.push(r)}
+const moon=new THREE.Mesh(new THREE.SphereGeometry(.24,32,32),new THREE.MeshStandardMaterial({color:0xe3d8ff,metalness:.25,roughness:.5}));scene.add(moon);
+const count=1700,pos=new Float32Array(count*3),cols=new Float32Array(count*3);
+for(let i=0;i<count;i++){pos[i*3]=(Math.random()-.5)*34;pos[i*3+1]=(Math.random()-.5)*24;pos[i*3+2]=(Math.random()-.5)*25;let c=new THREE.Color().setHSL(.53+Math.random()*.18,.45,.65+Math.random()*.3);cols.set([c.r,c.g,c.b],i*3)}
+const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.BufferAttribute(pos,3));sg.setAttribute('color',new THREE.BufferAttribute(cols,3));const stars=new THREE.Points(sg,new THREE.PointsMaterial({size:.035,vertexColors:true,transparent:true,opacity:.9}));scene.add(stars);
+let tx=0,ty=0,scrollP=0,drag=false,lx=0,ly=0;
+addEventListener('pointermove',e=>{if(!drag){tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2}});
+canvas.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY;canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointerup',()=>drag=false);canvas.addEventListener('pointercancel',()=>drag=false);
+canvas.addEventListener('pointermove',e=>{if(drag){root.rotation.y+=(e.clientX-lx)*.008;root.rotation.x+=(e.clientY-ly)*.008;lx=e.clientX;ly=e.clientY}});
+function resize(){renderer.setSize(innerWidth,innerHeight,false);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix()}addEventListener('resize',resize);resize();
+function shape(type){root.remove(core);core.geometry.dispose();let g=type==='torus'?new THREE.TorusGeometry(1.25,.38,32,120):type==='knot'?new THREE.TorusKnotGeometry(1.05,.3,180,24,2,3):new THREE.IcosahedronGeometry(1.45,5);core=new THREE.Mesh(g,mat);root.add(core);glow.visible=type==='planet';document.querySelectorAll('[data-form]').forEach(b=>b.classList.toggle('active',b.dataset.form===type))}
+document.querySelectorAll('[data-form]').forEach(b=>b.addEventListener('click',()=>shape(b.dataset.form)));
+function scroll(){let max=document.documentElement.scrollHeight-innerHeight;scrollP=max>0?scrollY/max:0;document.querySelector('#progress').style.width=(scrollP*100)+'%'}addEventListener('scroll',scroll,{passive:true});scroll();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+const clock=new THREE.Clock();function animate(){requestAnimationFrame(animate);let t=clock.getElapsedTime();camera.position.y+=( -scrollP*8-camera.position.y)*.035;camera.position.x+=(tx*.42-camera.position.x)*.025;camera.position.z+=(9+Math.abs(ty)*.35-camera.position.z)*.025;camera.lookAt(0,camera.position.y*.18,0);root.position.y=-scrollP*7.4+Math.sin(t*.7)*.08;root.rotation.y+=.0025;root.rotation.x+=(ty*.12-root.rotation.x)*.012;root.rotation.z+=(tx*.08-root.rotation.z)*.012;core.rotation.y+=.0018;core.rotation.x+=.0007;rings.forEach((r,i)=>r.rotation.z+=(i%2?-.0015:.0012));moon.position.set(Math.cos(t*.42)*3.2,Math.sin(t*.42)*1.1-1.4,Math.sin(t*.42)*1.2);moon.rotation.y+=.01;stars.rotation.y+=.00012;renderer.render(scene,camera)}animate();
+</script></body></html>
